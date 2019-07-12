@@ -1,1 +1,2 @@
-# Friend-Finder
+Friend Finder is an web app that lets users list personality traits and hobbies in order to be paired with users with similar interests.
+When the User submits his/her survey, it is run through code to determine who out of all users have the closest scores to that user.

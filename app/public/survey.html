@@ -178,6 +178,8 @@
     $("#sub").on("click", function(event){
         event.preventDefault();
 
+        var valid = true;
+
         var user = 
         {
             name: $("#name").val(),
@@ -195,12 +197,22 @@
                 $("input[name='10']:checked").val()
             ]
         };
-        console.log(user)
+
+        if(!$("#name").val() || !$("#url").val() || !$("input[name='1']:checked").val() || !$("input[name='2']:checked").val() || !$("input[name='3']:checked").val() || !$("input[name='4']:checked").val() || !$("input[name='5']:checked").val() || !$("input[name='6']:checked").val() || !$("input[name='7']:checked").val() || !$("input[name='8']:checked").val() || !$("input[name='9']:checked").val() || !$("input[name='10']:checked").val()){
+            alert("answer all questions");
+            valid = false;
+        };
+        if(valid == true){
+            console.log(user)
+            
+            // routes not to other files but to url they're assigned to
+            $.post("/api/friends", user, function(data){
+                console.log(data)
+            });
+        };
+
         
-        // routes not to other files but to url they're assigned to
-        $.post("/api/friends", user, function(data){
-            console.log(data)
-        })
+        
     });
     </script>
 </body>
